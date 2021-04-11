@@ -1,0 +1,16 @@
+@function colorRange($input)
+  $result: '#1F962F'
+
+  @if $input>50 and $input<=100
+      @return '#2AD541'
+  @else if $input>100 and $input<=200
+      @return '#EAD226'
+  @else if $input>200 and $input<=300
+      @return '#E3951C'
+  @else if $input>300 and $input<=400
+      @return '#F53639'
+  @else if $input>400
+      @return '#C62316'
+  
+      
+  @return $result

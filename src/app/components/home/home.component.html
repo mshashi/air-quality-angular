@@ -1,0 +1,19 @@
+<table mat-table [dataSource]="dataSource" matSort [matSortActive]="defaultSortColumn" [matSortDirection]="defaultSortDirection" class="mat-elevation-z8">
+    <!-- Table to show the air quality index-->
+    <caption></caption>
+
+    <!-- City Column -->
+    <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header id="city"> City </th>
+        <td mat-cell *matCellDef="let element"> <a routerLink="/expand/{{element.city}}">{{element.city}}</a> </td>
+    </ng-container>
+
+    <!-- Air Quality Index Column -->
+    <ng-container matColumnDef="aqi">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header id="aqi"> Air Quality Index </th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{'color': getColorCode(element.aqi)}"> {{element.aqi | number: '0.0-2'}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
